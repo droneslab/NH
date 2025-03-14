@@ -200,7 +200,7 @@
       <div class="column"><h2 class="title is-3">Method</h2>
         <div class="content has-text-justified">
           <p>
-            The process begins with an initial optimization to obtain optimal settings (∆t<sup>*</sup>,P<sup>*</sup>) and the corresponding metric (M<sup>*</sup><sub>feat</sub>), which are executed by the vision system.  The resulting image is evaluated using M<sub>feat</sub>; if the deviation exceeds the threshold (ε), optimization is triggered again; otherwise, the previous settings are reused.
+            The process begins with an initial optimization to obtain optimal settings (∆t<sup>*</sup>,P<sup>*</sup>) and the corresponding metric (M<sup>*</sup><sub>feat</sub>), which are executed by the vision system.  The resulting image is evaluated using <i>M<sub>feat</sub></i>; if the deviation exceeds the threshold (ε), optimization is triggered again; otherwise, the previous settings are reused.
           </p>
           <img style="width:100%;" src="static/images/NH-Algo-Tight2.png">
         </div>
@@ -233,14 +233,34 @@
       </div>
     </div>
   </div>
-</section> -->
+</section>  -->
 <!-- End Luna-1 -->
 
 <!-- Results -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column"><h2 class="title is-3">Results</h2>
+      <div class="column"><h2 class="title is-3">Feature-based Image Utility (<i>M<sub>feat</sub></i>)</h2>
+        <div class="content has-text-justified">
+          <h6>
+            Number of feature matches (top left) and inliers (top right) between consecutive frames. Change in image utility using  <i>M<sub>feat</sub></i>,  <i>M<sub>feat</sub></i>,  <i>M<sub>feat</sub></i> and <i>NEWG</i> for corresponding frames (bottom left) and Spearman correlation (bottom right)
+
+          </h6>
+          <img style="width:100%;" src="static/images/NH-Corr-plot2.png">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Results -->
+
+
+<!-- Results -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column"><h2 class="title is-3">NightHawk in the Field</h2>
         <div class="content has-text-justified">
           <h6>
             Feature tracking performance of the 3 settings. Mean exposure-times (∆t) for each run in top-right corner. AE + no external light (left) shows feature tracking loss when moving through low-light environments while AE + fixed (100%) external light (middle) shows some improvement but is limited due to over-exposure and specular reflections. NightHawk (right) shows overall longest feature tracks, fewest discontinuities and lowest average exposure-times
@@ -248,7 +268,7 @@
           <img style="width:100%;" src="static/images/NH-feat-results-canals2-r2d2.png">
 
           <h6>
-            The change in M<sub>feat</sub> as the robot enters the culvert is shown under two conditions: with auto-exposure and no external light (top), with external light at maximum intensity (center) and with NightHawk (bottom). In the first scenario, the exposure eventually reaches its lower limit, resulting in an under-exposed image that is unusable. In contrast, when external light at maximum intensity is applied, artifacts such as reflections and a greenish hue appear at both the entrance and exit of the culvert. Finally, with NightHawk, Overall image utility is consistent, the sudden dips and green-ish hue at culvert entrance is not seen anymore
+            The change in <i>M<sub>feat</sub></i> as the robot enters the culvert is shown under two conditions: with auto-exposure and no external light (top), with external light at maximum intensity (center) and with NightHawk (bottom). In the first scenario, the exposure eventually reaches its lower limit, resulting in an under-exposed image that is unusable. In contrast, when external light at maximum intensity is applied, artifacts such as reflections and a greenish hue appear at both the entrance and exit of the culvert. Finally, with NightHawk, Overall image utility is consistent, the sudden dips and green-ish hue at culvert entrance is not seen anymore
           </h6>
           <img style="width:100%;" src="static/images/NH-Insights-combo.png">
           
