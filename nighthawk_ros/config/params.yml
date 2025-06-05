@@ -1,0 +1,36 @@
+# /**/*:
+#   ros__parameters:
+#     param: 1.0
+
+/**:
+  ros__parameters:
+    OP_MAX_CALLS: 20
+    OP_INITIAL_POINTS: 5
+    OP_ACQ_FUNC: "EI"
+    OP_NUM_JOBS: 2
+    OP_STOPPING_DELTA: 0.01
+    OP_STOPPING_NBEST: 5
+
+    METER_INTEGRATION_TIME_MS: 500
+    NIGHTHAWK_SCORE_THRESHOLD: 15
+    NIGHTHAWK_REQUIRED_WARNINGS: 3
+    NIGHTHAWK_CURRENT_WARNINGS: 0
+
+    IMAGE_WIDTH: 640
+    IMAGE_HEIGHT: 400
+
+    SHUTTER_SPEEDS: [1000, 800, 640, 500, 400, 320, 250, 200, 160, 125, 60]
+    EXPOSURE_TIMES: [1.0, 1.25, 1.56, 2.0, 2.5, 3.125, 4.0, 5.0, 6.25, 15.0] # Converted from SHUTTER_SPEEDS
+
+    R2D2_CHECKPOINT: "/home/spottop/yt-nighthawk/r2d2/models/faster2d2_WASF_N16.pt"
+    R2D2_GPU_INDICES: [0]
+
+    SHARED_MEMORY_NAME: "shared_img"
+    IMAGE_SHAPE: [1200, 1920, 3]
+    IMAGE_DTYPE: "uint8"
+
+    CONTROL_LOOP_TIMER: 0.5
+
+
+    # TODO: Add sensor gain to FLIR driver param and here 
+    

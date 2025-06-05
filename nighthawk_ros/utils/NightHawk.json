@@ -1,0 +1,231 @@
+{
+  "configById": {
+    "Image!8hq00g": {
+      "cameraState": {
+        "distance": 20,
+        "perspective": true,
+        "phi": 60,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOffset": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "thetaOffset": 45,
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-pose",
+      "scene": {},
+      "transforms": {},
+      "topics": {},
+      "layers": {},
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      },
+      "imageMode": {
+        "imageTopic": "/flir_camera/image_raw"
+      }
+    },
+    "NodePlayground!37t61a": {
+      "selectedNodeId": "ccdea730-3150-4c2d-9e53-72f34a3d3386",
+      "autoFormatOnSave": true
+    },
+    "StateTransitions!7xrd24": {
+      "paths": [
+        {
+          "value": "/nighthawk/state.data",
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "isSynced": true,
+      "showPoints": false,
+      "foxglovePanelTitle": "State"
+    },
+    "StateTransitions!4b2y0vu": {
+      "paths": [
+        {
+          "value": "/nighthawk/optimal.data[3]",
+          "timestampMethod": "receiveTime",
+          "label": ""
+        }
+      ],
+      "isSynced": true,
+      "foxglovePanelTitle": "Optimization Iteration"
+    },
+    "Plot!62p6hw": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/nighthawk/score.data",
+          "enabled": true,
+          "color": "#f5774d",
+          "label": "Current"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/nighthawk/optimal.data[2]",
+          "enabled": true,
+          "color": "#f7df71",
+          "label": "Optimal"
+        }
+      ],
+      "minYValue": 0,
+      "maxYValue": 0.5,
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": false,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "Score"
+    },
+    "Plot!ti0r7h": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/nighthawk/optimal.data[0]",
+          "enabled": true,
+          "color": "#f7df71",
+          "label": "Optimal"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/led_driver/value.data",
+          "enabled": true,
+          "color": "#f5774d",
+          "label": "Current"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": false,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "Illumination"
+    },
+    "Plot!3avrci2": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/nighthawk/optimal.data[1]",
+          "enabled": true,
+          "color": "#f7df71",
+          "label": "Optimal"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/studio_script/exposure_time.exposure_time_scaled",
+          "enabled": true,
+          "color": "#f5774d",
+          "label": "Current"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": false,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "Exposure"
+    },
+    "Tab!11ky8ju": {
+      "activeTabIdx": 0,
+      "tabs": [
+        {
+          "title": "Image",
+          "layout": "Image!8hq00g"
+        },
+        {
+          "title": "Scripts",
+          "layout": "NodePlayground!37t61a"
+        }
+      ]
+    },
+    "RosOut!1x7se4t": {
+      "searchTerms": [],
+      "minLogLevel": 2,
+      "nameFilter": {
+        "nighthawk_ros": {
+          "visible": true
+        },
+        "nighthawk_score_node": {
+          "visible": false
+        },
+        "image_saver": {
+          "visible": true
+        }
+      }
+    }
+  },
+  "globalVariables": {
+    "globalVariable": 0
+  },
+  "userNodes": {
+    "7006b46e-a16d-4029-8c48-670dab6f9799": {
+      "sourceCode": "import { Input, Message } from \"./types\";\n\ntype Output = {\n  exposure_time_scaled: number;\n};\n\nexport const inputs = [\"/flir_camera/meta\"];\nexport const output = \"/studio_script/exposure_time\";\n\nexport default function script(event: Input<\"/flir_camera/meta\">): Output {\n  const exposureTime = event.message.exposure_time; // Extract exposure_time\n  const scaledExposureTime = exposureTime / 1000; // Scale to 1.0 - 8.0\n\n  return {\n    exposure_time_scaled: scaledExposureTime,\n  };\n}",
+      "name": "exposure-scaler"
+    },
+    "ccdea730-3150-4c2d-9e53-72f34a3d3386": {
+      "sourceCode": "import { Input, Message } from \"./types\";\n\n// Define the output type\ntype Output = {\n  status: boolean;\n};\n\n// Subscribe to the \"/nighthawk/state\" topic\nexport const inputs = [\"/nighthawk/state\"];\n\n// Publish to a new topic\nexport const output = \"/studio_script/state_processed\";\n\n// Define the transformation script\nexport default function script(event: Input<\"/nighthawk/state\">): Output {\n  return {\n    status: event.message.data === \"NORMAL\", // Access the 'data' field\n  };\n}\n",
+      "name": "state-process"
+    }
+  },
+  "playbackConfig": {
+    "speed": 1
+  },
+  "layout": {
+    "first": {
+      "first": {
+        "first": "StateTransitions!7xrd24",
+        "second": "StateTransitions!4b2y0vu",
+        "direction": "column",
+        "splitPercentage": 45.38152610441767
+      },
+      "second": {
+        "first": "Plot!62p6hw",
+        "second": {
+          "first": "Plot!ti0r7h",
+          "second": "Plot!3avrci2",
+          "direction": "column"
+        },
+        "direction": "column",
+        "splitPercentage": 33.66500829187396
+      },
+      "direction": "column",
+      "splitPercentage": 32.56379100850547
+    },
+    "second": {
+      "first": "Tab!11ky8ju",
+      "second": "RosOut!1x7se4t",
+      "direction": "column",
+      "splitPercentage": 45.6865127582017
+    },
+    "direction": "row",
+    "splitPercentage": 66.64464993394981
+  }
+}

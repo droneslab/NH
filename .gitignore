@@ -1,1 +1,4 @@
 .DS_Store
+# Ignore pycache files
+__pycache__/
+*/__pycache__/
