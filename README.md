@@ -1,6 +1,6 @@
 # NightHawk : Active Illumination Control [ISER 25']
 
-[![Project Page](https://img.shields.io/badge/Project%20Page-NightHawk-blue)](droneslab.github.io/NH)
+[![Project Page](https://img.shields.io/badge/Project%20Page-NightHawk-blue)](https://droneslab.github.io/NH)
 
 **This is a work in progress. The code is not yet ready for use.**
 
