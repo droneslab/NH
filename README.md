@@ -4,9 +4,9 @@
     <a href="https://github.com/droneslab/NH"><img src="https://img.shields.io/badge/ROS2-Humble-blue" /></a>
     <a href="https://github.com/droneslab/NH"><img src="https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black" /></a>
     <a href="https://arxiv.org/abs/"><img src="https://img.shields.io/badge/arXiv-b33737?logo=arXiv" /></a>
+    <a href="https://droneslab.github.io/NH"><img src="https://img.shields.io/badge/Project-Page-blue" /></a>
 </div>
 
-[![Project Page](https://img.shields.io/badge/Project%20Page-NightHawk-blue)](https://droneslab.github.io/NH)
 
 **This is a work in progress. The code is not yet ready for use.**
 
