@@ -54,7 +54,7 @@
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title"><span style="color: rgb(192, 0, 0)">NightHawk</span>: Active Illumination Control</h1>
             <h2 style="font-size:1.5rem; color: gray;">
-                Accepted for presentation at <a href="https://iser2025.org" target="_blank">ISER 2025</a>
+                <a href="https://iser2025.org/program/#:~:text=Yash%20Turkar*%2C%20Youngjin%20Kim%2C%20Karthik%20Dantu" target="_blank">ISER 2025</a>
             </h2> 
             <!-- <h1 style="font-size:1.5rem">European Conference on Computer Vision (ECCV) 2024</h1> -->
             <div class="is-size-5 publication-authors">
@@ -152,9 +152,10 @@
                   </a>
 
               <div class="content has-text-justified">
-                <img style="width:100%;" src="static/images/NH-Culvert.png">
+                <img style="width:100%;" src="static/images/NH-Splash-2.pdf">
                 <p>
-                  Active Illumination and Exposure control on Boston Dynamics Spot and Unitree Go2 robots. Spot exploring and inspecting Culvert 110 beneath Erie Canal
+                  Active illumination and exposure control on Boston Dynamics Spot, inspecting culverts under the Erie Canal in Medina, NY. (Left) Spot approaches entrance of
+                  culvert 110, a 66m long, subterranean environment with extremely low ambient illumination. (Right) Spot entering and exiting the culvert equipped with NightHawk
                 </p>
               </div>
 
@@ -181,7 +182,15 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Subterranean environments such as culverts present significant challenges to robot vision due to dim lighting and lack of distinctive features. Although onboard illumination can help, it introduces issues such as specular reflections, overexposure, and increased power consumption. We propose NightHawk, a framework that combines active illumination with exposure control to optimize image quality in these settings. NightHawk formulates an online Bayesian optimization problem to determine the best light intensity and exposure time for a given scene. A novel feature detector-based metric quantifies image utility and serves as the cost function for the optimizer. We built NightHawk as an event-triggered recursive optimization pipeline and deployed it on a legged robot navigating a culvert in the Erie Canal. Preliminary results demonstrate improvements in feature tracking and estimation accuracy.  Further experiments including integration with a visual odometry system are currently underway.
+            Subterranean environments such as culverts present significant challenges to robot vision due to dim lighting and lack of distinctive
+            features. Although onboard illumination can help, it introduces issues
+            such as specular reflections,overexposure,and increased power consumption. We propose NightHawk, a framework that combines active illumination with exposure control to optimize image quality in these settings.
+            NightHawk formulates an online Bayesian optimization problem to determine the best light intensity and exposure-time for a given scene. We propose a novel feature detector-based metric to quantify image utility
+            and use it as the cost function for the optimizer. We built NightHawk as
+            an event-triggered recursive optimization pipeline and deployed it on a
+            legged robot navigating a culvert beneath the Erie Canal. Results from
+            field experiments demonstrate improvements in feature detection and
+            matching by 47-197% enabling more reliable visual estimation in challenging lighting conditions.
           </p>
         </div>
         <div class="publication-video">
@@ -219,7 +228,7 @@
           <p>
             The process begins with an initial optimization to obtain optimal settings (∆t<sup>*</sup>,P<sup>*</sup>) and the corresponding metric (M<sup>*</sup><sub>feat</sub>), which are executed by the vision system.  The resulting image is evaluated using <i>M<sub>feat</sub></i>; if the deviation exceeds the threshold (ε), optimization is triggered again; otherwise, the previous settings are reused.
           </p>
-          <img style="width:100%;" src="static/images/NH-Algo-Tight2.png">
+          <img style="width:100%;" src="static/images/NH-Algo-web.png">
         </div>
       </div>
     </div>
@@ -245,7 +254,7 @@
         </div>
         <div class="content has-text-centered">
             <img style="width:100%; padding-right: 15px;" src="static/images/NIGHTHAWK-real-robot3.png"/>
-            <!-- <img style="width:49%; padding-right: 15px; padding-bottom: 2px;" src="static/images/nav_frames.png"/>  -->
+           <img style="width:49%; padding-right: 15px; padding-bottom: 2px;" src="static/images/nav_frames.png"/>  
         </div>
       </div>
     </div>
@@ -260,10 +269,11 @@
       <div class="column"><h2 class="title is-3">Feature-based Image Utility (<i>M<sub>feat</sub></i>)</h2>
         <div class="content has-text-justified">
           <h6>
-            Number of feature matches (top left) and inliers (top right) between consecutive frames. Change in image utility using  <i>M<sub>feat</sub></i>,  <i>M<sub>feat</sub></i>,  <i>M<sub>feat</sub></i> and <i>NEWG</i> for corresponding frames (bottom left) and Spearman correlation (bottom right)
+            Correlation of utility metrics with feature detection/matching. <i>M<sub>feat</sub></i> demonstrates a strong positive correlation with feature matching performance across five diverse feature detectors 
+    (AKAZE, SHI_TOMASI, ORB, R2D2, and Superpoint).
 
           </h6>
-          <img style="width:100%;" src="static/images/NH-Corr-plot2.png">
+          <img style="width:100%;" src="static/images/NH-metrics.png">
           
         </div>
       </div>
@@ -287,7 +297,7 @@
           <h6>
             The change in <i>M<sub>feat</sub></i> as the robot enters the culvert is shown under two conditions: with auto-exposure and no external light (top), with external light at maximum intensity (center) and with NightHawk (bottom). In the first scenario, the exposure eventually reaches its lower limit, resulting in an under-exposed image that is unusable. In contrast, when external light at maximum intensity is applied, artifacts such as reflections and a greenish hue appear at both the entrance and exit of the culvert. Finally, with NightHawk, Overall image utility is consistent, the sudden dips and green-ish hue at culvert entrance is not seen anymore
           </h6>
-          <img style="width:100%;" src="static/images/NH-Insights-combo.png">
+          <img style="width:100%;" src="static/images/NH-score-combo-aligned.pdf">
           
           <!-- <h6>
             and maintains this alignment across different environment features:
